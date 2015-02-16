@@ -33,23 +33,27 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # is an empty array.
   #config.berkshelf.args = ["--format json"]
 
-  # Configure whicc version of Chef to use.
-  config.omnibus.chef_version = "11.10"
+  # Configure which version of Chef to use.
+  config.omnibus.chef_version = "11.18.6"
 
-  config.vm.provision :chef_solo do |chef|
+  config.vm.provision "chef_zero" do |chef|
         # This recipe runs apt-get update for you
         chef.add_recipe "apt"
         # This recipe installs nginx
         chef.add_recipe "nginx"
         # This recipe installs postgresql
         chef.add_recipe "postgresql::server"
+        # This installs our simple application
         chef.add_recipe "mnemonic::default"
+        #chef.nodes_path = "chefrepo/nodes/"
+        chef.roles_path = "chefrepo/roles/"
+        chef.node_name = "web1"
         chef.json = { 
             :postgresql => {
                 :enable_pgdg_apt => true,
                 :password => { :postgres =>  "md5b3f502afeed93efd0a2798b259f2cfdc" }
             }
         }
-        #chef.add_role "web"
+        chef.add_role "mnemonic_application_server"
   end
 end
