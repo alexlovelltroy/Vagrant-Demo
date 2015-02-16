@@ -23,5 +23,6 @@ echo -n 'insecure_password''postgres' | openssl md5 | sed -e 's/.* /md5/'
 ## Notes
 * I work for [Pythian](http://www.pythian.com) and we’re always looking for great people, but this is personal
 * [Hashicorp](http://hasicorp.com) Does a lot of cool things and you should follow them and use what they make
-* [Seth Vargo explains Berkshelf]*(https://sethvargo.com/berksfile-magic/)
+* [Seth Vargo explains Berkshelf](https://sethvargo.com/berksfile-magic/)
+* [Many thanks to Poise for excellent chef resources](https://github.com/poise/application)
 
