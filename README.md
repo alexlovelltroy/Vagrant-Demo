@@ -26,3 +26,7 @@ echo -n 'insecure_password''postgres' | openssl md5 | sed -e 's/.* /md5/'
 * [Seth Vargo explains Berkshelf](https://sethvargo.com/berksfile-magic/)
 * [Many thanks to Poise for excellent chef resources](https://github.com/poise/application)
 
+## Other, similar implementations
+* https://github.com/geolffreym/vagrant-chef
+* https://github.com/denniswalker/vagrant-multvm
+* __INSERT YOUR PULL REQUEST HERE__
